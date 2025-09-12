@@ -1,97 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Renew Massage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Renew Massage Therapy, LLC — Massage in Eau Claire, WI</title>
+<meta name="description" content="Professional, personal massage therapy in Eau Claire, WI. Therapeutic, MFLD, oncology, and maternity massage. Book online." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-  background: #E7E7E7;
-}
-
-.img2 {
-  max-width: 100%;
-  width: 241px;  // assume this is the default size
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-.center2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 241px;
-}
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 200px;
-}
-
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url('/w3images/parallax1.jpg');
-  min-height: 40%;
-}
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url("https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282290/squaremas_k9ez2r.png");
-  min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282013/Entrance_dsbjf9.jpg");
-  min-height: 400px;
-}
-
-.w3-display-middle2 {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)
-}
-
-.w3-wide {letter-spacing: 5px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
+  :root{
+    --sage:#8FA693;            /* brand accent */
+    --sage-700:#5E6F65;
+    --cream:#F6F3EE;           /* hero bg */
+    --paper:#FBFAF8;           /* page bg */
+    --ink:#222426;             /* primary text */
+    --muted:#6A6F73;           /* secondary text */
+    --line:#E6E1D8;            /* soft borders */
+    --cta:#2E6E62;             /* buttons */
+    --cta-press:#24574E;
+    --radius:18px;
+    --maxw:1120px;
   }
-}
 
-/* Modify Navbar */
-.w3-bar {
-  background-color: E7E7E7 !important; /* Set navbar to always stay white */
-}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:var(--paper);
+    font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.7;
+  }
+  img{display:block; max-width:100%; height:auto}
+  a{color:inherit; text-decoration:none}
+  a:focus-visible, button:focus-visible{outline:3px solid #BFD5CA; outline-offset:2px}
+  h1,h2,h3{margin:0 0 .6rem}
+  h1{font-family:Newsreader, Georgia, serif; font-weight:700; line-height:1.1; font-size:clamp(2rem,3.4vw,3.2rem)}
+  h2{font-weight:800; letter-spacing:.2px; font-size:clamp(1.3rem,1.6vw,1.6rem)}
+  p{margin:.35rem 0 1rem}
 
-.w3-bar .w3-bar-item {
-  transition: background-color 0.3s ease;
-}
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--line);
+    box-shadow:0 8px 24px rgba(0,0,0,.04);
+  }
+  .nav-inner{max-width:var(--maxw); margin:0 auto; padding:12px 16px; display:flex; align-items:center; gap:14px}
+  .brand{display:flex; align-items:center; gap:12px}
+  .brand img{height:150px}
+  .brand .name{font-weight:800; letter-spacing:.3px}
+  .brand .tag{color:var(--muted); margin-top:-4px; font-size:.95rem}
+  nav{margin-left:auto}
+  .navlist{display:flex; gap:10px; align-items:center}
+  .navlink{padding:10px 12px; border-radius:999px; color:var(--muted); font-weight:700}
+  .navlink:hover{background:#F1F3F1; color:var(--ink)}
+  .cta{
+    padding:10px 16px; border-radius:999px; color:#fff; background:var(--cta); font-weight:800;
+    box-shadow:0 10px 22px rgba(46,110,98,.25); border:1px solid #1F534B;
+  }
+  .cta:hover{background:var(--cta-press)}
 
-.w3-bar .w3-bar-item:hover {
-  background-color: #f1f1f1 !important; /* Hover color */
-}
+  .burger{display:none; margin-left:auto; border:0; background:transparent; padding:8px; cursor:pointer; border-radius:12px}
+  .burger svg{width:26px;height:26px}
+  .mobile{display:none; background:#fff; border-top:1px solid var(--line)}
+  .mobile a{display:block; padding:12px 18px; border-bottom:1px solid var(--line)}
+
+  @media (max-width:900px){
+    nav{display:none}
+    .burger{display:block}
+    .mobile.open{display:block}
+    .brand img{height:100px}
+  }
+
+  /* Layout */
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+  section{scroll-margin-top:100px}
+  .card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 12px 30px rgba(0,0,0,.06); padding:22px}
+
+  /* Hero */
+  .hero{background:var(--cream); border-bottom:1px solid var(--line)}
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; padding:34px 0;
+  }
+  .kicker{color:var(--sage-700); font-weight:800; text-transform:uppercase; letter-spacing:.12em; font-size:.82rem}
+  .lead{color:var(--muted)}
+  .hero-photo{
+    aspect-ratio:2/2; border-radius:16px; overflow:hidden; background:#EEF1EF; border:1px transparent var(--line)
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover}
+  @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; padding:24px 0} .hero .photo-first{order:-1} }
+
+  /* Services band */
+  .band{
+    background:var(--sage); color:#fff; padding:38px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .band h2{font-family:Newsreader, Georgia, serif}
+  .svc-cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:14px}
+  .svc{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); border-radius:16px; padding:16px; backdrop-filter:saturate(120%) blur(1px)}
+  .svc h3{margin:.2rem 0 .4rem; font-weight:800}
+  .svc p{margin:0}
+  .ico{width:36px; height:36px; border-radius:10px; background:#fff; display:grid; place-items:center; color:var(--sage); font-weight:900}
+  @media (max-width:900px){ .svc-cards{grid-template-columns:1fr} }
+
+  /* Why / Feel block */
+  .feel{background:#fff; padding:34px 0}
+  .feel-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:start}
+  .muted{color:var(--muted)}
+  .checklist{list-style:none; padding:0; margin:.2rem 0 0}
+  .checklist li{margin:.4rem 0; padding-left:1.6rem; position:relative}
+  .checklist li::before{content:"✓"; position:absolute; left:0; top:0; color:#3F5E55; font-weight:900}
+  .note{background:#F1F4F1; border:1px solid var(--line); border-radius:14px; padding:14px; color:#3a3f3d; font-size:.95rem}
+  .aux-photo{aspect-ratio:4/3; border-radius:14px; overflow:hidden; border:1px solid var(--line)}
+  .aux-photo img{width:100%; height:100%; object-fit:cover}
+  @media (max-width:980px){ .feel-grid{grid-template-columns:1fr} }
+
+  /* About split */
+  .about{background:#fff; padding:38px 0}
+  .split{display:grid; grid-template-columns:.95fr 1.05fr; gap:26px; align-items:start}
+  .gallery{display:grid; gap:12px; grid-template-columns:1fr 1fr}
+  .gallery img{border-radius:14px; border:1px solid var(--line)}
+  .btn-secondary{display:inline-block; padding:10px 16px; border-radius:999px; font-weight:800; color:var(--cta); border:2px solid var(--cta); background:transparent}
+  .btn-secondary:hover{background:rgba(46,110,98,.08)}
+  @media (max-width:980px){ .split{grid-template-columns:1fr} }
+
+  /* Testimonials (optional) */
+  .testimonials{background:#fbfbfb; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:34px 0}
+  .quotes{display:grid; gap:16px; grid-template-columns:repeat(3,minmax(0,1fr))}
+  .quote{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
+  .quote em{color:var(--muted)}
+  @media (max-width:900px){ .quotes{grid-template-columns:1fr} }
+
+  /* Footer */
+  footer{background:#111; color:#cfd6d2; padding:36px 16px}
+  footer a{color:#E8EFEA}
+  .foot-grid{max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:18px}
+  @media (max-width:900px){ .foot-grid{grid-template-columns:1fr} }
+
+  /* Motion */
+  @media (prefers-reduced-motion:no-preference){
+    [data-reveal]{opacity:0; transform:translateY(12px); transition:opacity .4s ease, transform .4s ease}
+    [data-reveal].show{opacity:1; transform:none}
+  }
+
+
 
 .massage-options {
   text-align: center;          /* Centers the text inside the div */
   padding: 20px;               /* Adds padding around the text */
+  background-color: #F2DED5;   /* Optional background color */
   border-radius: 10px;         /* Optional rounded corners */
   max-width: 1000px;            /* Limits width for better readability */
   margin: 0 auto;              /* Centers the div itself on the page */
@@ -104,11 +160,11 @@ body, html {
 }
 
 .service-circle {
-  width: 180px;
-  height: 180px;
-  border: 4px solid #14213d;
+  width: 200px;
+  height: 200px;
+  border: 3px solid #a67c52;
   border-radius: 50%;
-  background-color: #B4C0E4;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,136 +172,257 @@ body, html {
   padding: 10px;
   box-sizing: border-box;
   margin: auto;
-  font-color: black;
 }
 
 .service-circle h4 {
   margin: 5px 0;
-  font-size: 1.1em !important;
+  font-size: 1em !important;
   color: #000;
   text-align: center;
   line-height: 1.1;            /* Adds spacing for readability */
 
 }
-
-.service-circle .details {
-  font-size: 1em !important;
+.service-circle h5 {
+  margin: 5px 0;
+  font-size: 1.5em !important;
   color: #000;
-  text-align: center;          /* Keeps the header centered */
-  line-height: .8;
+  text-align: center;
+  line-height: 1.25;            /* Adds spacing for readability */
 
 }
+
+
+.service-circle .details {
+  font-size: 1.25em !important;
+  color: #333;
+  text-align: center;          /* Keeps the header centered */
+  line-height: 10px;
+  padding-top: 10px;
+
+}
+
+.tight-row .w3-quarter {
+  padding: 8px 4px; /* tighter side padding */
+  max-width: 220px;
+    line-height: .8;            /* Adds spacing for readability */
+
+}
+
+.massage-description {
+  font-size: 18px !important;
+  color: #333;
+  line-height: 1.75;
+  text-align: left;
+  padding: 20px 20px 20px 90px; /* top, right, bottom, left */
+  max-width: 1000px;
+  margin-bottom: 5em;
+}
+
+
+
+/* --- FIX: Services circles side-by-side (no W3.css needed) --- */
+#services .tight-row:not(.w3-content){
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  justify-content:center;
+}
+
+/* each "quarter" behaves like a card column */
+#services .tight-row:not(.w3-content) .w3-quarter{
+  flex:0 1 230px;          /* ~4 across on desktop, wraps as needed */
+  display:flex;
+  justify-content:center;
+}
+
+/* large screens: bias toward 4 across */
+@media (min-width: 1100px){
+  #services .tight-row:not(.w3-content) .w3-quarter{ flex-basis:22%; }
+}
+
+/* tablet: 2 across; phone: 1 across */
+@media (max-width: 900px){
+  #services .tight-row:not(.w3-content) .w3-quarter{ flex:1 1 300px; }
+}
+@media (max-width: 540px){
+  #services .tight-row:not(.w3-content){ gap:12px; }
+  #services .tight-row:not(.w3-content) .w3-quarter{ flex:1 1 100%; }
+}
+
+.inline-photo { width:250px; height:auto; display:inline-block; vertical-align:middle; border-radius:8px; }
+
+/* About: make text hug the photo */
+#about .split{
+  grid-template-columns: max-content 1fr;  /* left col fits the image */
+  gap: 18px;                               /* was 26px */
+  align-items: start;                       /* keep tops aligned */
+}
+
+/* keep the stack on mobile */
+@media (max-width:980px){
+  #about .split{ grid-template-columns: 1fr; }
+}
+
+/* (optional) set a tidy size for the inline photo */
+#about .inline-photo{
+  width: 260px;     /* tweak to taste */
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+
+/* ABOUT: put the H2 above both columns; image + text start same level */
+#about .split{
+  display:grid;
+  grid-template-columns: max-content 1fr; /* image shrinks; text fills */
+  gap:18px;
+  align-items:start;
+}
+
+/* 1st child = image column; force it to row 2 */
+#about .split > div:first-child{ grid-column:1; grid-row:2; }
+
+/* flatten the right column so its children can be placed on the parent grid */
+#about .split > div:last-child{ display:contents; }
+
+/* H2 spans both columns (row 1) */
+#about .split h2{ grid-column:1 / -1; margin-bottom:8px; }
+
+/* Everything after the H2 goes in column 2 (row 2+) */
+#about .split h2 ~ *{ grid-column:2; }
+
+/* tidy image size */
+#about .inline-photo{ width:260px; height:auto; border-radius:14px; display:block; }
+
+/* mobile: stack naturally */
+@media (max-width:980px){
+  #about .split{ grid-template-columns:1fr; }
+  #about .split > div:first-child{ grid-row:auto; }
+  #about .split h2, #about .split h2 ~ *{ grid-column:1; }
+}
+
+
+/* SERVICES — align to the same gutters/width as the rest */
+#services .w3-content{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 16px;             /* same side padding as .wrap */
+  text-align: left;            /* override w3-center for the heading */
+}
+
+/* Make the Services heading look like the other section headings */
+#services .w3-content > h3{
+  font-family: Newsreader, Georgia, serif;
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: clamp(1.3rem,1.6vw,1.6rem);
+  margin: 0 0 12px;
+  text-align: left;            /* beats .w3-center */
+}
+
+/* Keep the circle row within the same gutters */
+#services .tight-row:not(.w3-content){
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Description block: align to gutters and match band styling */
+#services .massage-description{
+  max-width: var(--maxw);
+  margin: 16px auto 0;
+  padding: 0 16px;             /* remove the old 90px left pad */
+  color: #000000;                 /* readable on the sage band */
+}
+#services .massage-description strong{ color:#000000; }
+
+
+/* === SERVICES: force 5 circles on one line (desktop only) === */
+@media (min-width: 980px){
+  /* the inner row that holds the 5 .w3-quarter items */
+  #services .tight-row:not(.w3-content){
+    flex-wrap: nowrap;   /* stop wrapping */
+    gap: px;           /* slightly tighter gap so 5 fit */
+  }
+  #services .tight-row:not(.w3-content) .w3-quarter{
+    flex: 0 0 200px;     /* match the 200px circle size */
+    padding-left: 0;     /* remove side padding so they fit */
+    padding-right: 0;
+  }
+}
+
+
+
+
 </style>
 </head>
 <body>
 
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <!-- First row (Navigation items grouped into 3 equal columns) -->
-    <div class="w3-bar" id="myNavbar" style="display: flex; background-color: white; width: 100%;">
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Home">
+      <!-- Keep your actual logo -->
+      <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282017/Newmassagesarahlogoiudearg_dc3zbr.png" alt="Renew Massage Therapy logo">
 
-      <!-- Left Column (with fixed width 33.33%) -->
-      <div class="w3-bar-item" style="width: 35%; text-align: left;">
-        <!-- <a href="#home" class="w3-bar-item w3-button" style="font-size: 14px; padding: 3px 5px;">HOME</a> -->
-        <a href="#about" class="w3-bar-item w3-button w3-hide-small" style="font-size: 12px; "><i class="fa fa-user"></i> ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small" style="font-size: 12px; "><i class="fa fa-th"></i> SERVICES</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hide-small" style="font-size: 12px; "><i class="fa fa-envelope"></i> SCHEDULE</a>
+    </a>
+
+    <nav aria-label="Primary">
+      <div class="navlist">
+        <a class="navlink" href="#services">Services</a>
+        <a class="navlink" href="#affiliates">Affiliates</a>
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#contact">Location</a>
+        <a class="cta" href="https://renew-massage-therapy-llc.square.site/" target="_blank" rel="noopener">Book</a>
       </div>
+    </nav>
 
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
 
-      <!-- Center Column (Logo with fixed width 33.33%) -->
-      <div class="w3-bar-item" style="width: 28.67%; text-align: center;">
-        <a href="#home">
-          <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282017/Newmassagesarahlogoiudearg_dc3zbr.png" alt="Logo" style="height: 100px;">
-        </a>
+  <!-- Mobile menu -->
+  <div class="mobile" id="mobileMenu" aria-label="Mobile menu">
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#why" onclick="closeMenu()">Why Massage</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#contact" onclick="closeMenu()">Location</a>
+    <a href="https://renew-massage-therapy-llc.square.site/" target="_blank" rel="noopener" onclick="closeMenu()">Book</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-photo photo-first" data-reveal>
+        <!-- Adobe Stock suggestion: “massage therapist studio neutral plant” / lifestyle portrait -->
+        <!-- Swap the src with your Adobe Stock preview (comp) URL -->
+        <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282290/squaremas_k9ez2r.png" alt="Sarah in the studio">
       </div>
+      <div data-reveal>
+        <!--<div class="kicker">Eau Claire • In-studio care</div>-->
+                <img src="https://res.cloudinary.com/dqzatipkx/image/upload/v1751484488/welcom_tzc3ev.png" alt="Sarah in the studio">
 
-      <!-- Right Column (with fixed width 33.33%) -->
-      <div class="w3-bar-item" style="width: 33.33%; text-align: right;">
-        <a href="https://renew-massage-therapy-llc.square.site/" class="w3-button w3-hover-gold" style="background-color: #ff7900; color: white; padding: 5px 20px; border-radius: 5px;" target="_blank">
-          <i class="fa fa-calendar"></i> BOOK NOW!
-        </a>
+  
+        <h1><br>I am Sarah Johnson,</h1>
+        <p class="lead">a licensed massage therapist dedicated to helping you feel your best and bring balance to your mind and body.</p>
+        <p class="lead">We offer a wide variety of massage options to fit your unique needs—whether you're looking to relax and unwind, relieve chronic pain, or support recovery. Not sure what you need? We're happy to help you choose the perfect massage for your body and goals.</p>
+
+        <p><a class="cta" href="https://renew-massage-therapy-llc.square.site/" target="_blank" rel="noopener">Book Your Session</a></p>
       </div>
-
     </div>
   </div>
+</section>
 
-  </div>
-
-
-
-
-
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">SERVICES</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">SCHEDULE</a>
-	<a href="https://renew-massage-therapy-llc.square.site/" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red" target="_blank">
-      BOOK NOW!
-    </a>
-  </div>
-</div>
-
-
-
-<!-- Remaining Content Sections (About, Services, etc.) -->
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <br><img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282832/Sarah_h5wbmt.jpg" class="w3-round center2 w3-image" alt="Photo of Me" width="241px" height="320px"></div>
-    <div class="massage-options">
-        <p>I am Sarah Johnson and I look forward to working with you. At Renew Massage Therapy, LLC my hope is for every client to feel renewed after a massage therapy session. Renewed in body, heart and mind. Renewed for their day, week and month.
-    <br>
-    <br>
-
-    I have been a licensed massage therapist since 2000. How time flies! I realize this may sound cliche; however, I have enjoyed every day that I’ve worked. Really. I learn something each day; I love that. I am a forever student. I’m also a massage educator at PHD Academy. I have plenty of real-life scenarios to share with students, who will be my future colleagues in this beloved massage therapy field.
-    <br>
-    <br>
-
-    The past eight years I’ve enjoyed being part of a spa staff. Previous to that, I spent 11 years in the Twin Cities working in a wellness center as well as in conjunction with chiropractors. I am grateful for the learning and growing opportunities I experienced through those work environments.
-    <br>
-    <br>
-
-    At Renew Massage Therapy, each massage session is different depending on your needs, whether for relaxation (“swedish”) or firmer work (“deep tissue”), I customize with hot stones, cupping, and/or hot towels. I utilize a variety of techniques including, for example, myofascial release to address your needs for that session</p>
-
-
-</div>
-
-
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-
-  </div>
-  <div class="w3-quarter w3-section">
-
-  </div>
-  <div class="w3-quarter w3-section">
-
-  </div>
-  <div class="w3-quarter w3-section">
-
-  </div>
-</div>
-
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">SERVICES</span>
-  </div>
-</div>
-
+<!-- SERVICES -->
+<section id="services" class="band">
 <!-- SERVICES SECTION OF BODY -->
 
 
-  <div class="w3-row-padding w3-center tight-row w3-content w3-justify">
+
+<div class="w3-row-padding w3-center tight-row w3-content w3-justify">
     <h3 class="w3-center">Services</h3>
-
-
-    <div class="massage-options">
-      <p>We offer a wide variety of massage options to fit your unique needs—whether you're looking to relax and unwind, relieve chronic pain, or support recovery. Not sure what you need? We're happy to help you choose the perfect massage for your body and goals.</p>
-    </div>
 
     <div class="w3-row-padding w3-center tight-row">
       <div class="w3-quarter">
@@ -261,7 +438,7 @@ body, html {
 
       <div class="w3-quarter">
         <div class="service-circle">
-          <h4>MYOFASCIAL <br>LYMPH DRAINAGE </h4>
+          <h4>MYOFASCIAL <br>LYMPH DRAINAGE</h4>
           <div class="details">
             <p>60 min – $90</p>
             <p>90 min – $110</p>
@@ -288,107 +465,191 @@ body, html {
           </div>
         </div>
       </div>
+
+      <!--<div class="w3-quarter">
+        <div class="service-circle">
+          <h5>GIFT CARDS AVAILABLE</h4>
+
+        </div>
+      </div> -->
     </div>
   </div>
 
 
-  <!-- massage text &nbsp means space-->
+  <!-- massage text -->
 
 
-
-  <div class="massage-options">
-<p style="text-align: left; line-height: 2.25em; color: #14213d;">      <strong>Myofascial Lymph Drainage (MFLD):&nbsp</strong> uses a light touch for the purpose of draining excess fluid from the body. The goal is
+  <div class="massage-description">
+    <p>
+      <strong>Myofascial Lymph Drainage (MFLD):</strong> uses a light touch for the purpose of draining excess fluid from the body. The goal is
       to improve the overall function of the lymphatic system—our immune system. A nurturing feeling of deep relaxation and
       calm is a common response after a MFLD massage.
       <br>
 
-      <strong>Oncology:&nbsp</strong> for those in treatment and history of cancer. 
+      <strong>Oncology:</strong> for those currently in treatment and with history of cancer.
       <br>
-      <strong>Maternity:&nbsp</strong> for at 13 weeks or more.  
+      <strong>Maternity:</strong> for at 13 weeks or more.
 
     </p>
   </div>
 
 
-  <!-- giftcard SECTION OF BODY -->
+    <!-- giftcard SECTION OF BODY -->
 
 
     <div class="w3-row-padding w3-center tight-row w3-content w3-justify">
-      <h3 class="w3-center">Gift Cards</h3>
-
-<h3 class="w3-center">It’s that time of year! A gift that keeps on giving…both to the recipient and the giver!
-<BR>
-<a href="http://squareup.com/gift/MLVACZP1G5QGW/order" target="_new"><img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1751471715/2018_Happy_Birthday_Envelope_e-Gift_Cards_640x400_mmwhc5.png">
-<BR>
-Order Renew Massage Therapy LLC eGift Cards</a></h3><br><br>
-
-
-
-</div>
-
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+        <br>
+          <div>
+          <p><a class="cta" href="http://squareup.com/gift/MLVACZP1G5QGW/order" target="_blank" rel="noopener">Gift Cards Available</a></p>
+  
+        </div>
   </div>
+
+  
+  
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <div class="wrap">
+      <div class="split">
+        <div >
+  
+  <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282832/Sarah_h5wbmt.jpg" alt="Sarah" class="inline-photo" loading="lazy">
 </div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <h3 class="w3-center">LOCATION</h3>
-  <p class="w3-center"><em>A little update is that I have moved down the hallway in the same building; so it’s not necessary to walk through the Pilates studio any longer. I hope you can see it sometime soon!
-<br>
-<br>
-As far as finding my new place, use this address on your gps…..
-<br>
-<br>
-2737 London Road, Eau Claire, WI 54701. Enter the building through the “CosmoProf” door. My sign is in the window. Walk down the hall to the second door on the left. You’ll see a bench and a welcome mat, plus my sign on the door (it will be open). Take care and see you soon!</em></p>
-
-<br>
-<br>
-<p align="center"><img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282013/Entrance_dsbjf9.jpg" height="482px" style="width:362px"></p>
-<br>
-<br>
-
-  <div class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <a href="https://maps.app.goo.gl/SJaddQFkP7xBpvK88" target="_new"><img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282010/map_ki5lsi.jpg" class="w3-image w3-round" style="width:100%"></a>
-    </div>
-    <div class="w3-col m8 w3-panel">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> 2737 London Road, Suite A <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eau Claire, WI 54701<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: <a href="tel:7152020046">715-202-0046</a> (Call/Text)<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: <a href="mailto:sarahjmn@gmail.com">sarahjmn@gmail.com</a><br>
-		<i class="fa fa-calendar fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="https://renew-massage-therapy-llc.square.site/" target="_blank">Book with me here!<a><br>
+        <div data-reveal>
+          <h2>About Sarah</h2>
+          <p>Hi, I’m <strong>Sarah Johnson</strong>— I look forward to working with you. At Renew Massage Therapy, LLC my hope is for every client to feel renewed after a massage therapy session. Renewed in body, heart and mind. Renewed for their day, week and month.
+            <br>
+            <br>
+            
+            I have been a licensed massage therapist since 2000. How time flies! I realize this may sound cliche; however, I have enjoyed every day that I’ve worked. Really. I learn something each day; I love that. I am a forever student. I’m also a massage educator at PHD Academy. I have plenty of real-life scenarios to share with students, who will be my future colleagues in this beloved massage therapy field.
+            <br>
+            <br>
+            
+           Before starting Renew, I enjoyed being part of a local spa staff. Previous to that, I spent 11 years in the Twin Cities working in a wellness center as well as in conjunction with chiropractors. I am grateful for the learning and growing opportunities I experienced through those work environments.
+            <br>  
+            <br>
+            
+            At Renew Massage Therapy, each massage session is different depending on your specific needs, whether for relaxation (“swedish”) or firmer work (“deep tissue”). I customize with hot stones, cupping, and/or hot towels. I utilize a variety of techniques including, for example, myofascial release, MFLD, and muscle energy techniques to address your needs for that session</p>
+            
+         <p><a class="btn-secondary" href="mailto:sarahjmn@gmail.com">Ask a question</a></p>
+        </div>
       </div>
+    </div>
+  </section>
 
+<!-- location -->
+<section id="location" class="feel">
+    <div class="wrap">
+      <div class="feel-grid">
+        <div data-reveal>
+          <h2>Location</h2>
+          <p class="muted">We’ll create a simple plan that supports everyday ease and long-term comfort.</p>
+          <ul class="checklist">
+            <li>Persistent neck/shoulder tightness</li>
+            <li>Aches from desk work or driving</li>
+            <li>Tension headaches or jaw clenching</li>
+            <li>Pre/post-natal changes and recovery</li>
+            <li>Adding restorative self-care to a busy week</li>
+          </ul>
+          <div class="note" style="margin-top:12px">
+            Add-ons by request: hot towels, stones, cupping, myofascial techniques.
+          </div>
+        </div>
+        <div data-reveal>
+          <div class="aux-photo" style="margin-bottom:12px">
+            <!-- Adobe Stock suggestion: “close up hands massage linen neutral palette” -->
+            <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282013/Entrance_dsbjf9.jpg" alt="Studio entrance">
+          </div>
+          <div class="note">
+            New studio: enter at “CosmoProf,” second door on the left—you’ll see the welcome mat and sign.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- AFFILIATES -->
+<section id="affiliates" class="feel">
+    <div class="wrap">
+      <div class="feel-grid">
+        <div data-reveal>
+          <h2>Why massage—right now</h2>
+          <p class="muted">We’ll create a simple plan that supports everyday ease and long-term comfort.</p>
+          <ul class="checklist">
+            <li>Persistent neck/shoulder tightness</li>
+            <li>Aches from desk work or driving</li>
+            <li>Tension headaches or jaw clenching</li>
+            <li>Pre/post-natal changes and recovery</li>
+            <li>Adding restorative self-care to a busy week</li>
+          </ul>
+          <div class="note" style="margin-top:12px">
+            Add-ons by request: hot towels, stones, cupping, myofascial techniques.
+          </div>
+        </div>
+        <div data-reveal>
+          <div class="aux-photo" style="margin-bottom:12px">
+            <!-- Adobe Stock suggestion: “close up hands massage linen neutral palette” -->
+            <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282013/Entrance_dsbjf9.jpg" alt="Studio entrance">
+          </div>
+          <div class="note">
+            New studio: enter at “CosmoProf,” second door on the left—you’ll see the welcome mat and sign.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- TESTIMONIALS (optional copy—swap with real quotes when ready) -->
+<section class="testimonials">
+  <div class="wrap">
+    <h2 data-reveal>Kind words</h2>
+    <div class="quotes">
+      <div class="quote" data-reveal><strong>“Truly the best.”</strong><br><em>Targeted work that eased months of shoulder pain.</em></div>
+      <div class="quote" data-reveal><strong>“Grounded and calm.”</strong><br><em>I leave every session breathing easier.</em></div>
+      <div class="quote" data-reveal><strong>“Thoughtful, professional.”</strong><br><em>Sarah tailors each visit to exactly what I need.</em></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <h3 style="margin:0 0 .4rem">Visit</h3>
+      <p>2737 London Road, Suite A<br>Eau Claire, WI 54701</p>
+      <p><a href="https://maps.app.goo.gl/SJaddQFkP7xBpvK88" target="_blank" rel="noopener">Get Directions</a></p>
+    </div>
+    <div>
+      <h3 style="margin:0 0 .4rem">Contact</h3>
+      <p><a href="tel:7152020046">715-202-0046</a> (call/text)<br>
+         <a href="mailto:sarahjmn@gmail.com">sarahjmn@gmail.com</a><br>
+         <a href="https://renew-massage-therapy-llc.square.site/" target="_blank" rel="noopener">Book a Session</a></p>
+    </div>
   </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <div style="max-width:var(--maxw); margin:18px auto 0; text-align:center; color:#aeb6b1">
+    © <span id="year"></span> Renew Massage Therapy, LLC
+  </div>
 </footer>
 
-
 <script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMenu(){ mobileMenu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  burger.addEventListener('click', ()=>{ const open = mobileMenu.classList.toggle('open'); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+  window.addEventListener('resize', closeMenu);
 
+  // Simple reveal on scroll
+  const els = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+  },{ threshold:.12 });
+  els.forEach(el=>io.observe(el));
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
