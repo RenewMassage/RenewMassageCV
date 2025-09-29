@@ -88,11 +88,25 @@
   }
   .kicker{color:var(--sage-700); font-weight:800; text-transform:uppercase; letter-spacing:.12em; font-size:.82rem}
   .lead{color:var(--muted)}
-  .hero-photo{
-    aspect-ratio:2/2; border-radius:16px; overflow:hidden; background:#EEF1EF; border:1px transparent var(--line)
-  }
-  .hero-photo img{width:80%; height:80%; object-fit:cover}
-  @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; padding:24px 0} .hero .photo-first{order:-1} }
+
+  /* HERO — smaller image, no background halo */
+.hero-photo{
+  max-width: 520px;      /* <-- desktop cap; adjust to taste (480–560px) */
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;  /* was #EEF1EF */
+  border: 0;
+}
+.hero-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Phone: even smaller */
+@media (max-width: 540px){
+  .hero-photo{ max-width: 280px; }  /* tweak if you like */
+}
 
   /* Services band */
   .band{
@@ -451,10 +465,14 @@ body.scrolled .brand img{ height: 72px; }
         </div>
       </div>
 
-      <div class="w3-quarter">
-        <div class="service-circle">
-          <h5>GIFT CARDS AVAILABLE</h5>
-        </div>
+<div class="w3-quarter">
+  <a class="service-circle"
+     href="http://squareup.com/gift/MLVACZP1G5QGW/order"
+     target="_blank" rel="noopener">
+    <h5>GIFT CARDS AVAILABLE</h5>
+  </a>
+</div>
+
       </div>
     </div>
   </div>
