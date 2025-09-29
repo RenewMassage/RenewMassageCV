@@ -20,11 +20,11 @@
     --cta:#2E6E62;             /* buttons */
     --cta-press:#24574E;
     --radius:18px;
-    --maxw:1120px;
+    --maxw:1100px;
   }
 
   /* Make in-page anchors stop *below* the sticky header */
-  :root { --sticky: 120px; }      /* adjust to your real header height */
+  :root { --sticky: 115px; }      /* adjust to your real header height */
   html  { scroll-padding-top: var(--sticky); }
 
   *{box-sizing:border-box}
@@ -322,6 +322,33 @@
     height: auto !important;
   }
 }
+
+/* Header compaction */
+header{ transition: box-shadow .2s ease, background .2s ease; }
+.nav-inner{ padding: 8px 16px; }             /* was 12px */
+.brand img{
+  height: 130px;                               /* was 150px */
+  transition: height .18s ease;
+}
+
+/* When scrolled a bit, make the bar compact */
+body.scrolled .nav-inner{ padding: 6px 16px; }
+body.scrolled .brand img{ height: 72px; }
+
+/* Tighter nav pills so header feels smaller overall */
+.navlink{ padding: 8px 10px; }               /* was 10px 12px */
+.cta{ padding: 8px 14px; }                   /* was 10px 16px */
+
+/* Mobile sizes (keeps things comfy on phones) */
+@media (max-width: 900px){
+  .brand img{ height: 72px; }                /* was 100px */
+  body.scrolled .brand img{ height: 60px; }
+}
+@media (max-width: 420px){
+  .brand img{ height: 56px; }
+  body.scrolled .brand img{ height: 50px; }
+}
+
 
 </style>
 </head>
