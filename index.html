@@ -376,6 +376,10 @@
 }
 
 
+/* Respect EXIF on <img> elements if present */
+.hero-photo img { image-orientation: from-image; }
+
+
 
 </style>
 </head>
@@ -623,7 +627,7 @@
     <div>
       <h3 style="margin:0 0 .4rem">Visit</h3>
       <p>4606 Commerce Valley Rd, Suite 214<br>Eau Claire, WI 54701</p>
-      <p><a href="https://maps.app.goo.gl/SJaddQFkP7xBpvK88" target="_blank" rel="noopener">Get Directions</a></p>
+      <p><a href='https://maps.app.goo.gl/6VgMdRh2XGV15HQz9' target="_blank" rel="noopener">Get Directions</a></p>
     </div>
     <div>
       <h3 style="margin:0 0 .4rem">Contact</h3>
@@ -662,12 +666,12 @@
     if(!imgA || !imgB) return;
 
     const imgs = [
-      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929768/B2_sc3fzt.webp",
-      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929768/B5_c8rgqb.webp",
-      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929769/B4_ldaxgv.webp",
-      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929770/B6_lzlcd8.webp",
-      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929776/B1_roaz6f.webp",
-      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929777/B3_edp8hx.webp"
+      "https://res.cloudinary.com/dqzatipkx/image/upload/a_auto,fl_strip_profile/v1761929768/B2_sc3fzt.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/a_auto,fl_strip_profile/v1761929768/B5_c8rgqb.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/a_auto,fl_strip_profile/v1761929769/B4_ldaxgv.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/a_auto,fl_strip_profile/v1761929770/B6_lzlcd8.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/a_auto,fl_strip_profile/v1761929776/B1_roaz6f.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/a_auto,fl_strip_profile/v1761929777/B3_edp8hx.webp"
     ];
 
     let i = 0;
