@@ -24,8 +24,20 @@
   }
 
   /* Make in-page anchors stop *below* the sticky header */
-  :root { --sticky: 115px; }      /* adjust to your real header height */
+  :root { --sticky: 115px; }
   html  { scroll-padding-top: var(--sticky); }
+
+  /* NEW — announcement bar */
+  .announce-bar{
+  background: var(--sage);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.4;
+  }
+  .announce-bar a{ color:#fff; text-decoration: underline; }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -89,24 +101,32 @@
   .kicker{color:var(--sage-700); font-weight:800; text-transform:uppercase; letter-spacing:.12em; font-size:.82rem}
   .lead{color:var(--muted)}
 
-  /* HERO — smaller image, no background halo */
-.hero-photo{
-  max-width: 520px;      /* <-- desktop cap; adjust to taste (480–560px) */
-  border-radius: 16px;
-  overflow: hidden;
-  background: transparent;  /* was #EEF1EF */
-  border: 0;
-}
-.hero-photo img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
+  /* HERO — square mask + crossfade */
+  .hero-photo{
+    max-width: 520px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    position: relative;
+    aspect-ratio: 1 / 1;        /* << square mask */
+  }
+  .hero-photo img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* fill mask without distortion */
+    opacity: 0;
+    transition: opacity .9s ease-in-out; /* smoother fade */
+    will-change: opacity;
+  }
+  .hero-photo img.active{ opacity: 1; }
 
-/* Phone: even smaller */
-@media (max-width: 540px){
-  .hero-photo{ max-width: 280px; }  /* tweak if you like */
-}
+  /* Phone: even smaller */
+  @media (max-width: 540px){
+    .hero-photo{ max-width: 280px; }
+  }
 
   /* Services band */
   .band{
@@ -154,7 +174,7 @@
   .foot-grid{max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:18px}
   @media (max-width:900px){ .foot-grid{grid-template-columns:1fr} }
 
-  /* Motion */
+  /* Motion reveal */
   @media (prefers-reduced-motion:no-preference){
     [data-reveal]{opacity:0; transform:translateY(12px); transition:opacity .4s ease, transform .4s ease}
     [data-reveal].show{opacity:1; transform:none}
@@ -214,57 +234,26 @@
     }
   }
 
-  /* LOCATION — single source of truth (buttons = full column width) */
+  /* LOCATION */
   #location .loc-row{
     display:grid;
-    grid-template-columns: 1fr 1fr;  /* left: text, right: button+image */
+    grid-template-columns: 1fr 1fr;
     gap:18px;
     align-items:start;
     margin-top:18px;
   }
-  #location .loc-left{
-    display:grid;
-    align-content:start;
-    gap:10px;
-  }
-  #location .loc-left .address{
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-  #location .loc-left .address li{
-    margin:0;
-    line-height:1.35;
-  }
-  #location .loc-left .address li strong{
-    display:inline-block;
-    margin-bottom:4px;       /* tiny gap under label */
-  }
-  #location .loc-right{
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;     /* children fill column width */
-    gap:12px;
-  }
-  #location .loc-right .cta{
-    display:block;
-    width:100%;              /* <-- matches photo width */
-    text-align:center;
-  }
-  #location .map-photo{
-    display:block;
-    width:100%;
-    height:auto;
-    border-radius:14px;
-    border:1px solid var(--line);
-  }
-  @media (max-width:980px){
-    #location .loc-row{ grid-template-columns:1fr; }
-  }
+  #location .loc-left{ display:grid; align-content:start; gap:10px; }
+  #location .loc-left .address{ list-style:none; margin:0; padding:0; }
+  #location .loc-left .address li{ margin:0; line-height:1.35; }
+  #location .loc-left .address li strong{ display:inline-block; margin-bottom:4px; }
+  #location .loc-right{ display:flex; flex-direction:column; align-items:stretch; gap:12px; }
+  #location .loc-right .cta{ display:block; width:100%; text-align:center; }
+  #location .map-photo{ display:block; width:100%; height:auto; border-radius:14px; border:1px solid var(--line); }
+  @media (max-width:980px){ #location .loc-row{ grid-template-columns:1fr; } }
 
-  /* Make the greeting image in the hero smaller */
+  /* Greeting image in hero right column */
   .hero .hero-grid > div:last-child > img{
-    width: 280px;        /* tweak this number */
+    width: 280px;
     height: auto;
     display: block;
     margin: 0 0 -10px;
@@ -309,59 +298,83 @@
     h2 { font-size: clamp(1.1rem, 4.5vw, 1.3rem); }
   }
 
-
   /* Make the left hero image modest on phones */
+  @media (max-width: 540px){
+    .hero-photo{ max-width: 280px; margin: 0 auto; }
+  }
+
+  /* Slightly larger on small tablets */
+  @media (min-width: 541px) and (max-width: 820px){
+    .hero-photo{ max-width: 360px; margin: 0 auto; }
+  }
+
+  /* Header compaction */
+  header{ transition: box-shadow .2s ease, background .2s ease; }
+  .nav-inner{ padding: 8px 16px; }
+  .brand img{ height: 130px; transition: height .18s ease; }
+  body.scrolled .nav-inner{ padding: 6px 16px; }
+  body.scrolled .brand img{ height: 72px; }
+  .navlink{ padding: 8px 10px; }
+  .cta{ padding: 8px 14px; }
+  @media (max-width: 900px){
+    .brand img{ height: 72px; }
+    body.scrolled .brand img{ height: 60px; }
+  }
+  @media (max-width: 420px){
+    .brand img{ height: 56px; }
+    body.scrolled .brand img{ height: 50px; }
+  }
+
+
+
+  /* --- MOBILE OVERRIDES (place at the very end of your <style>) --- */
+
+/* 1) Hero: remove the left banner image on small screens so text goes full width */
+@media (max-width: 700px){
+  .hero-grid{
+    grid-template-columns: 1fr;   /* single column */
+    gap: 18px;
+  }
+  .hero .hero-photo,
+  .hero .photo-first{
+    display: none !important;     /* hide the rotating hero image */
+  }
+}
+
+/* 2) Services: two circles per row on mobile + slightly smaller fonts */
 @media (max-width: 540px){
-  .hero-photo{
-    max-width: 280px;      /* dial this number to taste (e.g., 260–320px) */
-    aspect-ratio: auto;    /* let height follow the image */
-    margin: 0 auto;        /* center it */
+  /* Force two-up layout */
+  #services .tight-row:not(.w3-content){
+    gap: 12px;
   }
-  .hero-photo img{
-    width: 100% !important;
-    height: auto !important; /* no forced 80% height */
-    object-fit: cover;
+  #services .tight-row:not(.w3-content) .w3-quarter{
+    flex: 0 1 calc(50% - 12px) !important;
+    max-width: calc(50% - 12px) !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Keep circles nicely contained */
+  .service-circle{
+    width: 170px;
+    height: 170px;
+    padding: 10px;
+  }
+
+  /* Nudge typography down a bit so it stays inside the circle */
+  .service-circle h4{ font-size: 0.9em !important; line-height: 1.1; }
+  .service-circle h5{ font-size: 1.2em !important; line-height: 1.2; }
+  .service-circle .details{ font-size: 1.05em !important; line-height: 1.25; }
+}
+
+/* Optional: on extra-tiny screens keep circles from overflowing the column */
+@media (max-width: 380px){
+  .service-circle{
+    width: 150px;
+    height: 150px;
   }
 }
 
-/* Slightly larger on small tablets */
-@media (min-width: 541px) and (max-width: 820px){
-  .hero-photo{
-    max-width: 360px;
-    aspect-ratio: auto;
-    margin: 0 auto;
-  }
-  .hero-photo img{
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-
-/* Header compaction */
-header{ transition: box-shadow .2s ease, background .2s ease; }
-.nav-inner{ padding: 8px 16px; }             /* was 12px */
-.brand img{
-  height: 130px;                               /* was 150px */
-  transition: height .18s ease;
-}
-
-/* When scrolled a bit, make the bar compact */
-body.scrolled .nav-inner{ padding: 6px 16px; }
-body.scrolled .brand img{ height: 72px; }
-
-/* Tighter nav pills so header feels smaller overall */
-.navlink{ padding: 8px 10px; }               /* was 10px 12px */
-.cta{ padding: 8px 14px; }                   /* was 10px 16px */
-
-/* Mobile sizes (keeps things comfy on phones) */
-@media (max-width: 900px){
-  .brand img{ height: 72px; }                /* was 100px */
-  body.scrolled .brand img{ height: 60px; }
-}
-@media (max-width: 420px){
-  .brand img{ height: 56px; }
-  body.scrolled .brand img{ height: 50px; }
-}
 
 
 </style>
@@ -388,6 +401,9 @@ body.scrolled .brand img{ height: 72px; }
     </button>
   </div>
 
+  
+  <!--announcment--> <div class="announce-bar" role="status" aria-live="polite"> We have moved!&nbsp;&nbsp; Our new location is 4606 Commerce Valley Rd &nbsp;&nbsp;<a href="https://maps.app.goo.gl/6VgMdRh2XGV15HQz9"><em>(open in google maps)</em></a> </div>
+
   <!-- Mobile menu -->
   <div class="mobile" id="mobileMenu" aria-label="Mobile menu">
     <a href="#services" onclick="closeMenu()">Services</a>
@@ -404,7 +420,9 @@ body.scrolled .brand img{ height: 72px; }
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-photo photo-first" data-reveal>
-        <img src="https://res.cloudinary.com/dwsdvc5sd/image/upload/v1748282290/squaremas_k9ez2r.png" alt="Sarah in the studio">
+        <!-- Two stacked images for smooth crossfade within a square mask -->
+        <img id="heroA" class="active" src="https://res.cloudinary.com/dqzatipkx/image/upload/v1761929768/B2_sc3fzt.webp" alt="Sarah in the studio">
+        <img id="heroB" src="" alt="" aria-hidden="true">
       </div>
       <div data-reveal>
         <!--<div class="kicker">Eau Claire • In-studio care</div>-->
@@ -465,15 +483,14 @@ body.scrolled .brand img{ height: 72px; }
         </div>
       </div>
 
-<div class="w3-quarter">
-  <a class="service-circle"
-     href="http://squareup.com/gift/MLVACZP1G5QGW/order"
-     target="_blank" rel="noopener">
-    <h5>GIFT CARDS AVAILABLE</h5>
-  </a>
-</div>
-
+      <div class="w3-quarter">
+        <a class="service-circle"
+           href="http://squareup.com/gift/MLVACZP1G5QGW/order"
+           target="_blank" rel="noopener">
+          <h5>GIFT CARDS AVAILABLE</h5>
+        </a>
       </div>
+
     </div>
   </div>
 
@@ -523,66 +540,38 @@ body.scrolled .brand img{ height: 72px; }
 <section id="location" class="feel">
   <div class="wrap">
     <h2>Location</h2>
-    <p>The building is a small mall of shops with 2 parking lots to choose from!</p>
+    <p>We are sharing a suite with Caring Touch Massage!</p>
 
     <!-- ROW 1: Physical Address (left) ↔ button full width (right) -->
     <div class="loc-row">
       <div class="loc-left" data-reveal>
         <ul class="address checklist">
-          <li><strong>Physical Address:</strong></li>
-          <li>Renew Massage Therapy LLC</li>
-          <li>2737 London Road, Suite A</li>
+          <li><strong>Renew Massage Therapy LLC</strong></li>
+          <li>4606 Commerce Valley Rd</li>
+          <li>Suite 214</li>
           <li>Eau Claire, WI 54701</li>
         </ul>
 
         <ul class="checklist">
-          <li>
-            1) London Rd parking lot — enter through the Cosmo Prof door. You will see a wooden bench and a welcome mat by our suite door down the hall on the left when you enter the building from this lot.
-          </li>
+          <li>1) One block east of after the Red Robin</li>
+          <li>2) Before Oakwood Hills Animal Hospital</li>
+          <li>3) Across the street from Evergreen Funeral Home</li>
         </ul>
       </div>
 
       <div class="loc-right" data-reveal>
         <button class="cta" type="button"
-          onclick="location.href='https://www.google.com/maps/search/?api=1&query=2737%20London%20Rd%2C%20Eau%20Claire%2C%20WI%2054701'">
+          onclick="location.href='https://maps.app.goo.gl/6VgMdRh2XGV15HQz9'">
           Open in Google Maps
         </button>
 
         <img class="map-photo"
-             src="https://res.cloudinary.com/dqzatipkx/image/upload/v1757648788/LONDONRD_fiz6gg.png"
+             src="https://res.cloudinary.com/dqzatipkx/image/upload/v1761929759/NewLocation_ezz0kr.webp"
              alt="London Rd entrance">
       </div>
     </div>
 
-    <!-- ROW 2: Mailing Address (left) ↔ button full width (right) -->
-    <div class="loc-row">
-      <div class="loc-left" data-reveal>
-        <ul class="address checklist">
-          <li><strong>Mailing Address:</strong></li>
-          <li>Renew Massage Therapy LLC</li>
-          <li>2734 Mall Drive</li>
-          <li>Eau Claire, WI 54701</li>
-        </ul>
-
-        <ul class="checklist">
-          <li>
-            2) Mall Dr parking lot — enter through the Wildflower Beauty entrance. You will see signs to guide you down the hall and to the right. You will see a wooden bench and a welcome door mat by our suite door.
-          </li>
-        </ul>
-      </div>
-
-      <div class="loc-right" data-reveal>
-        <button class="cta" type="button"
-          onclick="location.href='https://maps.app.goo.gl/9KPWwgEdWoDVEpQ2A'">
-          Open in Google Maps
-        </button>
-
-        <img class="map-photo"
-             src="https://res.cloudinary.com/dqzatipkx/image/upload/malldrive_nocars_ws2lpt.png"
-             alt="Mall Dr entrance">
-      </div>
-    </div>
-  </div>
+    
 </section>
 
 <!-- FAQ -->
@@ -665,6 +654,50 @@ body.scrolled .brand img{ height: 72px; }
 
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // --- HERO IMAGE ROTATOR (square mask + smooth crossfade) ---
+  (function(){
+    const imgA = document.getElementById('heroA');
+    const imgB = document.getElementById('heroB');
+    if(!imgA || !imgB) return;
+
+    const imgs = [
+      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929768/B2_sc3fzt.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929768/B5_c8rgqb.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929769/B4_ldaxgv.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929770/B6_lzlcd8.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929776/B1_roaz6f.webp",
+      "https://res.cloudinary.com/dqzatipkx/image/upload/v1761929777/B3_edp8hx.webp"
+    ];
+
+    let i = 0;
+    let useA = true;
+
+    const swap = () => {
+      i = (i + 1) % imgs.length;
+      const nextSrc = imgs[i];
+      const showing = useA ? imgA : imgB;
+      const hidden  = useA ? imgB : imgA;
+
+      // Preload into the hidden image, then crossfade
+      const pre = new Image();
+      pre.onload = () => {
+        hidden.src = nextSrc;
+        hidden.alt = showing.alt || "Sarah in the studio";
+        // Bring hidden to front by toggling .active; CSS handles opacity
+        hidden.classList.add('active');
+        showing.classList.remove('active');
+        useA = !useA;
+      };
+      pre.src = nextSrc;
+    };
+
+    // Respect reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const intervalMs = prefersReduced ? 8000 : 4000;
+
+    setInterval(swap, intervalMs);
+  })();
 </script>
 </body>
 </html>
